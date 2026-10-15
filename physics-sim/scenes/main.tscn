@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bobsp5i773i7w" path="res://scenes/hotbar_slot.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://cjpaypkqy3i6u" path="res://scripts/spawned_shapes.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://lt0xf4kptp2b" path="res://sprites/square.svg" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dmg3ajx82h4pc" path="res://sprites/circle-small.svg" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -75,16 +77,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = 51.0
-offset_right = -47.0
-offset_bottom = -42.0
+offset_left = 31.0
+offset_top = 59.0
+offset_right = 31.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_h2yge")
 spawn_parent = NodePath("../../spawned shapes")
-settings = NodePath("../settings")
+settings = NodePath("../rect settings")
 
 [node name="PanelContainer" type="PanelContainer" parent="ui" unique_id=167081990]
 anchors_preset = 7
@@ -106,34 +108,69 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("3_tefeu")
 shape_scene = ExtResource("1_ig7tw")
-settings = NodePath("../../../settings")
+settings = NodePath("../../../rect settings")
 
-[node name="settings" type="VBoxContainer" parent="ui" unique_id=580927187]
+[node name="circle slot" parent="ui/PanelContainer/HBoxContainer" unique_id=514759241 instance=ExtResource("2_tbgi4")]
+layout_mode = 2
+texture = ExtResource("5_o6xl0")
+shape_scene = ExtResource("6_tipki")
+
+[node name="rect settings" type="VBoxContainer" parent="ui" unique_id=580927187]
 offset_left = 79.0
 offset_top = 82.0
 offset_right = 166.0
 offset_bottom = 183.0
 script = ExtResource("5_tefeu")
 
-[node name="Label" type="Label" parent="ui/settings" unique_id=264107878]
+[node name="Label" type="Label" parent="ui/rect settings" unique_id=264107878]
 layout_mode = 2
 text = "Rect Settings"
 
-[node name="x size spinbox" type="SpinBox" parent="ui/settings" unique_id=1439849276]
+[node name="x size spinbox" type="SpinBox" parent="ui/rect settings" unique_id=1439849276]
 layout_mode = 2
 min_value = 1.0
 max_value = 500.0
 value = 20.0
 suffix = "px"
 
-[node name="y size spinbox" type="SpinBox" parent="ui/settings" unique_id=2029925270]
+[node name="y size spinbox" type="SpinBox" parent="ui/rect settings" unique_id=2029925270]
 layout_mode = 2
 min_value = 1.0
 max_value = 500.0
 value = 20.0
 suffix = "px"
 
-[node name="mass spinbox" type="SpinBox" parent="ui/settings" unique_id=1090845066]
+[node name="mass spinbox" type="SpinBox" parent="ui/rect settings" unique_id=1090845066]
+layout_mode = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 1.0
+suffix = "g"
+
+[node name="circle settings" type="VBoxContainer" parent="ui/rect settings" unique_id=642431502]
+layout_mode = 2
+script = ExtResource("5_tefeu")
+
+[node name="Label" type="Label" parent="ui/rect settings/circle settings" unique_id=428081064]
+layout_mode = 2
+text = "Circle Settings"
+
+[node name="x size spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=1385396227]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="y size spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=801262934]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="mass spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=2142532908]
 layout_mode = 2
 min_value = 0.1
 max_value = 1000.0

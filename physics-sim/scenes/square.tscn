@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://dea6whrs1upr2"]
 
-[ext_resource type="Script" uid="uid://bxddqpsxy4x28" path="res://scripts/shape.gd" id="1_rb13l"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
 [node name="square" type="RigidBody2D" unique_id=397708441]
-script = ExtResource("1_rb13l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738088400]
 scale = Vector2(1.0098397, 1)

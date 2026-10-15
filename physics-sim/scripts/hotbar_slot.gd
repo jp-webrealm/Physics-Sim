@@ -14,11 +14,13 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(_make_preview())
 	return { "scene": shape_scene }
 
+
 ## builds a preview that reads from settings so it looks like the shape that will be spawned
 func _make_preview() -> Control:
 	var preview_size := size
 	if settings:
 		preview_size = Vector2(settings.get_size_x(), settings.get_size_y())
+
 
 	var preview := ColorRect.new()
 	preview.size = preview_size

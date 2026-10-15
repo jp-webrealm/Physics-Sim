@@ -4,8 +4,6 @@ extends Control
 @export var spawn_parent: Node2D
 @export var settings: SpawnSettings
 
-const PIXELS_PER_METER: float = 100.0
-
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data is Dictionary and data.has("scene")
 
@@ -15,6 +13,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	body.global_position = spawn_parent.get_global_mouse_position()
 	_apply_settings(body)
 	spawn_parent.add_child(body)
+
 
 ## reads the current values from the settings panel and applies them to the next shape
 func _apply_settings(body: RigidBody2D) -> void:
