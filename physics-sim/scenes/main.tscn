@@ -71,6 +71,7 @@ offset_bottom = 648.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=436948416]
+process_mode = 3
 
 [node name="shape drop area" type="Control" parent="ui" unique_id=170997331 node_paths=PackedStringArray("spawn_parent", "settings")]
 layout_mode = 3
@@ -87,6 +88,13 @@ mouse_filter = 1
 script = ExtResource("2_h2yge")
 spawn_parent = NodePath("../../spawned shapes")
 settings = NodePath("../rect settings")
+
+[node name="start button" type="Button" parent="ui" unique_id=824286550]
+offset_left = 201.0
+offset_top = 88.0
+offset_right = 332.0
+offset_bottom = 119.0
+text = "start simulation"
 
 [node name="PanelContainer" type="PanelContainer" parent="ui" unique_id=167081990]
 anchors_preset = 7
@@ -110,10 +118,44 @@ texture = ExtResource("3_tefeu")
 shape_scene = ExtResource("1_ig7tw")
 settings = NodePath("../../../rect settings")
 
-[node name="circle slot" parent="ui/PanelContainer/HBoxContainer" unique_id=514759241 instance=ExtResource("2_tbgi4")]
+[node name="circle slot" parent="ui/PanelContainer/HBoxContainer" unique_id=514759241 node_paths=PackedStringArray("settings") instance=ExtResource("2_tbgi4")]
 layout_mode = 2
 texture = ExtResource("5_o6xl0")
 shape_scene = ExtResource("6_tipki")
+settings = NodePath("../../../circle settings")
+
+[node name="circle settings" type="VBoxContainer" parent="ui" unique_id=642431502]
+offset_left = 79.0
+offset_top = 214.0
+offset_right = 189.0
+offset_bottom = 342.0
+script = ExtResource("5_tefeu")
+
+[node name="Label" type="Label" parent="ui/circle settings" unique_id=428081064]
+layout_mode = 2
+text = "Circle Settings"
+
+[node name="x size spinbox" type="SpinBox" parent="ui/circle settings" unique_id=1385396227]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="y size spinbox" type="SpinBox" parent="ui/circle settings" unique_id=801262934]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="mass spinbox" type="SpinBox" parent="ui/circle settings" unique_id=2142532908]
+layout_mode = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 1.0
+suffix = "g"
 
 [node name="rect settings" type="VBoxContainer" parent="ui" unique_id=580927187]
 offset_left = 79.0
@@ -148,35 +190,7 @@ step = 0.1
 value = 1.0
 suffix = "g"
 
-[node name="circle settings" type="VBoxContainer" parent="ui/rect settings" unique_id=642431502]
-layout_mode = 2
-script = ExtResource("5_tefeu")
-
-[node name="Label" type="Label" parent="ui/rect settings/circle settings" unique_id=428081064]
-layout_mode = 2
-text = "Circle Settings"
-
-[node name="x size spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=1385396227]
-layout_mode = 2
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-suffix = "px"
-
-[node name="y size spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=801262934]
-layout_mode = 2
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-suffix = "px"
-
-[node name="mass spinbox" type="SpinBox" parent="ui/rect settings/circle settings" unique_id=2142532908]
-layout_mode = 2
-min_value = 0.1
-max_value = 1000.0
-step = 0.1
-value = 1.0
-suffix = "g"
-
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")
+
+[connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]
