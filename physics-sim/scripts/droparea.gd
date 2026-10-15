@@ -17,7 +17,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	_apply_settings(body, panel)
 	spawn_parent.add_child(body)
 
-
 ## reads the current values from the settings panel and applies them to the next shape
 func _apply_settings(body: RigidBody2D, panel: SpawnSettings) -> void:
 	if panel == null:

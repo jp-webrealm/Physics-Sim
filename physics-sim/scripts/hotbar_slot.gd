@@ -14,13 +14,13 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(_make_preview())
 	return { "scene": shape_scene, "settings": settings }
 
-
 ## builds a preview that reads from settings so it looks like the shape that will be spawned
 func _make_preview() -> Control:
 	var preview_size := size
 	if settings:
 		preview_size = Vector2(settings.get_size_x(), settings.get_size_y())
 
+<<<<<<< Updated upstream
 	var preview := Control.new()
 	if _spawns_circle():
 		preview = EllipsePreview.new()
@@ -29,6 +29,9 @@ func _make_preview() -> Control:
 		rect.modulate.a = 0.6
 		preview = rect
 
+=======
+	var preview := ColorRect.new()
+>>>>>>> Stashed changes
 	preview.size = preview_size
 	preview.position = -preview_size / 2.0
 	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
