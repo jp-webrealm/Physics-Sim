@@ -3,3 +3,4 @@ res://scripts/shape.gd
 res://scripts/droparea.gd
 res://scenes/square.tscn
 res://scripts/hotbar_slot.gd
+res://scenes/circle.tscn
