@@ -21,7 +21,6 @@ func _make_preview() -> Control:
 	if settings:
 		preview_size = Vector2(settings.get_size_x(), settings.get_size_y())
 
-
 	var preview := ColorRect.new()
 	preview.size = preview_size
 	preview.position = -preview_size / 2.0
