@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmg3ajx82h4pc" path="res://sprites/circle-small.svg" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_85g3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -189,6 +190,13 @@ max_value = 1000.0
 step = 0.1
 value = 1.0
 suffix = "g"
+
+[node name="Materials" parent="ui" unique_id=2074358371 instance=ExtResource("8_85g3d")]
+unique_name_in_owner = true
+offset_left = -88.0
+offset_top = 88.0
+offset_right = -88.0
+offset_bottom = 88.0
 
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")

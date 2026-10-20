@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dmfpfuvi10t8w"]
+
+[ext_resource type="Script" uid="uid://dgdtsritpygj5" path="res://scenes/materials.gd" id="1_yp8l0"]
+
+[node name="Materials Menu" type="Control" unique_id=1490721908 node_paths=PackedStringArray("bounce_slider", "friction_slider", "rough_button", "absorbent_button")]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_yp8l0")
+bounce_slider = NodePath("Bounce/BounceSlider")
+friction_slider = NodePath("Friction/FrictionSlider")
+rough_button = NodePath("Rough/RoughButton")
+absorbent_button = NodePath("Absorbent/CheckButton")
+
+[node name="Bounce" type="Control" parent="." unique_id=1760460155]
+anchors_preset = 0
+offset_left = -184.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Bounce" unique_id=1433496404]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 23.0
+text = "Bounce"
+
+[node name="BounceSlider" type="HSlider" parent="Bounce" unique_id=1920388848]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 40.0
+max_value = 1.0
+step = 0.05
+ticks_position = 3
+
+[node name="Friction" type="Control" parent="." unique_id=1407918507]
+anchors_preset = 0
+offset_left = -184.0
+offset_top = 40.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="Friction" unique_id=2138517347]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 23.0
+text = "Friction"
+
+[node name="FrictionSlider" type="HSlider" parent="Friction" unique_id=1272217854]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 40.0
+max_value = 1.0
+step = 0.05
+ticks_position = 3
+
+[node name="Rough" type="Control" parent="." unique_id=230997315]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = 88.0
+offset_bottom = 112.0
+
+[node name="RoughButton" type="CheckButton" parent="Rough" unique_id=480835363]
+layout_mode = 0
+offset_left = 51.0
+offset_right = 95.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="Rough" unique_id=1129892898]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Rough"
+
+[node name="Absorbent" type="Control" parent="." unique_id=491120457]
+anchors_preset = 0
+offset_left = -120.0
+offset_top = 112.0
+offset_bottom = 136.0
+
+[node name="CheckButton" type="CheckButton" parent="Absorbent" unique_id=752477318]
+layout_mode = 0
+offset_left = 83.0
+offset_right = 127.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="Absorbent" unique_id=1658842390]
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 23.0
+text = "Absorbent"

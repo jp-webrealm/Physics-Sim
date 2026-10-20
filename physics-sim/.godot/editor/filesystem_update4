@@ -1,7 +1,6 @@
-res://scenes/main.tscn
-res://scripts/shape.gd
-res://scripts/droparea.gd
-res://scenes/square.tscn
 res://scripts/hotbar_slot.gd
-res://scenes/circle.tscn
-res://scripts/arrow.gd
+res://scenes/square.tscn
+res://scenes/materials.tscn
+res://scenes/materials.gd
+res://scenes/main.tscn
+res://scripts/droparea.gd

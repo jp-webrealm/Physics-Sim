@@ -19,8 +19,6 @@ func _make_preview() -> Control:
 	var preview_size := size
 	if settings:
 		preview_size = Vector2(settings.get_size_x(), settings.get_size_y())
-
-<<<<<<< Updated upstream
 	var preview := Control.new()
 	if _spawns_circle():
 		preview = EllipsePreview.new()
@@ -28,10 +26,6 @@ func _make_preview() -> Control:
 		var rect := ColorRect.new()
 		rect.modulate.a = 0.6
 		preview = rect
-
-=======
-	var preview := ColorRect.new()
->>>>>>> Stashed changes
 	preview.size = preview_size
 	preview.position = -preview_size / 2.0
 	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -39,7 +33,6 @@ func _make_preview() -> Control:
 	var wrapper := Control.new()
 	wrapper.add_child(preview)
 	return wrapper
-
 
 func _spawns_circle() -> bool:
 	var body := shape_scene.instantiate()
