@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmfpfuvi10t8w"]
 
-[ext_resource type="Script" uid="uid://dgdtsritpygj5" path="res://scenes/materials.gd" id="1_yp8l0"]
+[ext_resource type="Script" uid="uid://dgdtsritpygj5" path="res://scripts/materials.gd" id="1_yp8l0"]
 
 [node name="Materials Menu" type="Control" unique_id=1490721908 node_paths=PackedStringArray("bounce_slider", "friction_slider", "rough_button", "absorbent_button")]
 layout_mode = 3

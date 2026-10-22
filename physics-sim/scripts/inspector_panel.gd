@@ -22,14 +22,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var world_pos: Vector2 = get_viewport().get_canvas_transform().affine_inverse() * event.position
-		var query := PhysicsPointQueryParameters2D.new()
-		query.position = world_pos
-		query.collide_with_bodies = true
-		var hits := get_viewport().world_2d.direct_space_state.intersect_point(query, 1)
-		if hits.size() > 0 and hits[0].collider is Shape:
-			_select(hits[0].collider)
-		else:
-			selected = null
+		for node in get_tree().get_nodes_in_group("shapes"):
+			if node is Shape and node.contains_point(world_pos):
+				_select(node)
+				return
+		selected = null
 
 func _select(shape: Shape) -> void:
 	selected = shape
