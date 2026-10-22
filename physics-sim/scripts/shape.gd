@@ -31,6 +31,12 @@ func _make_arrows() -> void:
 		return constant_force / shape_weight
 	add_child(velocity_arrow)
 	add_child(accel_arrow)
+	velocity_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
+	accel_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func set_initial_state(pos: Vector2, vel: Vector2) -> void:
+	global_position = pos
+	linear_velocity = vel
 
 func _physics_process(delta: float) -> void:
 	pass

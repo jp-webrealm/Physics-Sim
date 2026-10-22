@@ -1,6 +1,5 @@
-res://scripts/hotbar_slot.gd
-res://scenes/square.tscn
-res://scenes/materials.tscn
-res://scenes/materials.gd
 res://scenes/main.tscn
-res://scripts/droparea.gd
+res://scripts/inspector_panel.gd
+res://scripts/shape.gd
+res://scripts/spawned_shapes.gd
+res://scenes/inspector_panel.tscn

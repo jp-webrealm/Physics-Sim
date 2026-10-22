@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bqx2fg3iutshh" path="res://scenes/inspector_panel.tscn" id="9_choun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -79,10 +80,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = 59.0
-offset_right = 31.0
-offset_bottom = 59.0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -197,6 +198,12 @@ offset_left = -88.0
 offset_top = 88.0
 offset_right = -88.0
 offset_bottom = 88.0
+
+[node name="InspectorPanel" parent="ui" unique_id=554557418 instance=ExtResource("9_choun")]
+offset_left = -1566.0
+offset_top = 109.0
+offset_right = -1206.0
+offset_bottom = 140.0
 
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")

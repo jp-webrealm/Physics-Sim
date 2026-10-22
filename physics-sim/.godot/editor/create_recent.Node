@@ -1,4 +1,7 @@
 Label
+HBoxContainer
+SpinBox
+PanelContainer
 CheckButton
 Control
 HSlider
