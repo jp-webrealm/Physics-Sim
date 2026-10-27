@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bqx2fg3iutshh" path="res://scenes/inspector_panel.tscn" id="9_choun"]
+[ext_resource type="Script" uid="uid://1nbg8r2u70ju" path="res://scripts/slingshot.gd" id="11_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -207,5 +208,9 @@ offset_bottom = 140.0
 
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")
+
+[node name="slingshot" type="Node2D" parent="." unique_id=1460820783 node_paths=PackedStringArray("drop_area")]
+script = ExtResource("11_ya4ey")
+drop_area = NodePath("../ui/shape drop area")
 
 [connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]

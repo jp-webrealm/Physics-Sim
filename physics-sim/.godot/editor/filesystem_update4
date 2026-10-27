@@ -1,2 +1,4 @@
 res://scripts/droparea.gd
 res://scripts/shape.gd
+res://scenes/main.tscn
+res://scripts/slingshot.gd
