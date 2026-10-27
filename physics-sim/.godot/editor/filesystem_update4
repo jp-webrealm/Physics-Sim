@@ -1,6 +1,2 @@
-res://scenes/materials.tscn
-res://scripts/inspector_panel.gd
-res://scripts/shape.gd
-res://scenes/inspector_panel.tscn
-res://scenes/circle.tscn
 res://scripts/droparea.gd
+res://scripts/shape.gd

@@ -4,7 +4,6 @@ class_name Shape
 
 @export var shape_size_x: int = 50
 @export var shape_size_y: int = 50
-@export var shape_weight: int = mass;
 @export var shape_color: Color = Color.WHITE
 
 var _label: Label
@@ -33,7 +32,7 @@ func _make_arrows() -> void:
 	var accel_arrow = Arrow.new()
 	accel_arrow.color = Color(1.0, 0.339, 0.273, 1.0)
 	accel_arrow.value_getter = func() -> Vector2:
-		return constant_force / shape_weight
+		return constant_force / mass
 	add_child(velocity_arrow)
 	add_child(accel_arrow)
 	velocity_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -67,7 +66,7 @@ func _update_label() -> void:
 	if not is_instance_valid(_label):
 		return
 	var box := Vector2(shape_size_x, shape_size_y)
-	var text := str(shape_weight) + str("g");
+	var text := str(mass) + str("g");
 	_label.text = text
 
 	# Fit the text inside the shape: limited by height and by width per character
