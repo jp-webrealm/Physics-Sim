@@ -1,9 +1,1 @@
-res://scripts/droparea.gd
-res://scripts/shape.gd
 res://scenes/main.tscn
-res://scripts/slingshot.gd
-res://scripts/graph.gd
-res://scenes/graph_container.tscn
-res://scripts/graph_container.gd
-res://scripts/graph_panel.gd
-res://scripts/inspector_panel.gd

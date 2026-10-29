@@ -208,6 +208,7 @@ offset_right = -1206.0
 offset_bottom = 140.0
 
 [node name="GraphPanel" parent="ui" unique_id=700875075 instance=ExtResource("10_eb6dy")]
+visible = false
 
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")
