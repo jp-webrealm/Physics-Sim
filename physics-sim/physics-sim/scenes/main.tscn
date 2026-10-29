@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://i4rfotd3cys"]
+
+[ext_resource type="PackedScene" uid="uid://dea6whrs1upr2" path="res://scenes/square.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b2ibs21h7avta" path="res://scripts/droparea.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bobsp5i773i7w" path="res://scenes/hotbar_slot.tscn" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://cjpaypkqy3i6u" path="res://scripts/spawned_shapes.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://lt0xf4kptp2b" path="res://sprites/square.svg" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dmg3ajx82h4pc" path="res://sprites/circle-small.svg" id="5_o6xl0"]
+[ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1152, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(35, 648)
+
+[node name="main" type="Node2D" unique_id=773411386]
+
+[node name="worldbox" type="Node2D" parent="." unique_id=27726430]
+
+[node name="floor" type="StaticBody2D" parent="worldbox" unique_id=420942139]
+position = Vector2(0, 1045)
+scale = Vector2(1.6667793, 0.86566967)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/floor" unique_id=1362614579]
+position = Vector2(576, 15.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/floor" unique_id=790024322]
+offset_top = -10.0
+offset_right = 1152.0
+offset_bottom = 41.0
+
+[node name="ceiling" type="StaticBody2D" parent="worldbox" unique_id=125217722]
+position = Vector2(0, 10)
+scale = Vector2(1.6668509, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/ceiling" unique_id=1111958698]
+position = Vector2(576, 15.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/ceiling" unique_id=149791209]
+offset_top = -10.0
+offset_right = 1152.0
+offset_bottom = 41.0
+
+[node name="walls" type="StaticBody2D" parent="worldbox" unique_id=1433131997]
+scale = Vector2(1.312538, 1.6396906)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/walls" unique_id=304874083]
+position = Vector2(17.5, 324)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/walls" unique_id=1424567272]
+offset_right = 40.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="walls2" type="StaticBody2D" parent="worldbox" unique_id=29689570]
+position = Vector2(1872, 0)
+scale = Vector2(1.2088888, 1.6399997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/walls2" unique_id=1483841416]
+position = Vector2(20, 324)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/walls2" unique_id=66285507]
+offset_right = 40.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=436948416]
+process_mode = 3
+
+[node name="shape drop area" type="Control" parent="ui" unique_id=170997331 node_paths=PackedStringArray("spawn_parent", "settings")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 59.0
+offset_right = 31.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_h2yge")
+spawn_parent = NodePath("../../spawned shapes")
+settings = NodePath("../rect settings")
+
+[node name="start button" type="Button" parent="ui" unique_id=824286550]
+offset_left = 201.0
+offset_top = 88.0
+offset_right = 332.0
+offset_bottom = 119.0
+text = "start simulation"
+
+[node name="PanelContainer" type="PanelContainer" parent="ui" unique_id=167081990]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -107.0
+offset_right = 20.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/PanelContainer" unique_id=1205333093]
+layout_mode = 2
+
+[node name="square slot" parent="ui/PanelContainer/HBoxContainer" unique_id=1844869355 node_paths=PackedStringArray("settings") instance=ExtResource("2_tbgi4")]
+layout_mode = 2
+texture = ExtResource("3_tefeu")
+shape_scene = ExtResource("1_ig7tw")
+settings = NodePath("../../../rect settings")
+
+[node name="circle slot" parent="ui/PanelContainer/HBoxContainer" unique_id=514759241 node_paths=PackedStringArray("settings") instance=ExtResource("2_tbgi4")]
+layout_mode = 2
+texture = ExtResource("5_o6xl0")
+shape_scene = ExtResource("6_tipki")
+settings = NodePath("../../../circle settings")
+
+[node name="circle settings" type="VBoxContainer" parent="ui" unique_id=642431502]
+offset_left = 79.0
+offset_top = 214.0
+offset_right = 189.0
+offset_bottom = 342.0
+script = ExtResource("5_tefeu")
+
+[node name="Label" type="Label" parent="ui/circle settings" unique_id=428081064]
+layout_mode = 2
+text = "Circle Settings"
+
+[node name="x size spinbox" type="SpinBox" parent="ui/circle settings" unique_id=1385396227]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="y size spinbox" type="SpinBox" parent="ui/circle settings" unique_id=801262934]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="mass spinbox" type="SpinBox" parent="ui/circle settings" unique_id=2142532908]
+layout_mode = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 1.0
+suffix = "g"
+
+[node name="rect settings" type="VBoxContainer" parent="ui" unique_id=580927187]
+offset_left = 79.0
+offset_top = 82.0
+offset_right = 166.0
+offset_bottom = 183.0
+script = ExtResource("5_tefeu")
+
+[node name="Label" type="Label" parent="ui/rect settings" unique_id=264107878]
+layout_mode = 2
+text = "Rect Settings"
+
+[node name="x size spinbox" type="SpinBox" parent="ui/rect settings" unique_id=1439849276]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="y size spinbox" type="SpinBox" parent="ui/rect settings" unique_id=2029925270]
+layout_mode = 2
+min_value = 1.0
+max_value = 500.0
+value = 20.0
+suffix = "px"
+
+[node name="mass spinbox" type="SpinBox" parent="ui/rect settings" unique_id=1090845066]
+layout_mode = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 1.0
+suffix = "g"
+
+[node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
+script = ExtResource("3_1bvp3")
+
+[connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]

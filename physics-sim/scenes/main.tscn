@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bqx2fg3iutshh" path="res://scenes/inspector_panel.tscn" id="9_choun"]
-[ext_resource type="PackedScene" uid="uid://77d88xqt38fw" path="res://scenes/graph_panel.tscn" id="10_eb6dy"]
-[ext_resource type="Script" uid="uid://1nbg8r2u70ju" path="res://scripts/slingshot.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://ccqvj02hyrp57" path="res://scripts/joint_slot.gd" id="10_jslot"]
+[ext_resource type="Texture2D" uid="uid://xv135s5ameuw" path="res://sprites/joint.svg" id="11_jtex"]
+[ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="12_hjnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -106,10 +107,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -107.0
-offset_right = 20.0
-offset_bottom = -67.0
+offset_left = -168.0
+offset_top = -1000.0
+offset_right = -36.0
+offset_bottom = -936.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -127,6 +128,31 @@ layout_mode = 2
 texture = ExtResource("5_o6xl0")
 shape_scene = ExtResource("6_tipki")
 settings = NodePath("../../../circle settings")
+
+[node name="joint hotbar" type="PanelContainer" parent="ui" unique_id=1630184420]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 208.0
+offset_bottom = 144.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/joint hotbar" unique_id=1630184421]
+layout_mode = 2
+
+[node name="hard joint slot" type="TextureRect" parent="ui/joint hotbar/HBoxContainer" unique_id=1630184422 node_paths=PackedStringArray("spawn_parent")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "Hard joint: click here, then click two shapes to glue them together (right click or Esc cancels)"
+mouse_filter = 0
+texture = ExtResource("11_jtex")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_jslot")
+joint_scene = ExtResource("12_hjnt")
+spawn_parent = NodePath("../../../../spawned shapes")
 
 [node name="circle settings" type="VBoxContainer" parent="ui" unique_id=642431502]
 offset_left = 79.0
@@ -207,15 +233,7 @@ offset_top = 109.0
 offset_right = -1206.0
 offset_bottom = 140.0
 
-[node name="GraphPanel" parent="ui" unique_id=700875075 instance=ExtResource("10_eb6dy")]
-visible = false
-
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")
 
-[node name="slingshot" type="Node2D" parent="." unique_id=1460820783 node_paths=PackedStringArray("drop_area")]
-script = ExtResource("11_ya4ey")
-drop_area = NodePath("../ui/shape drop area")
-
 [connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]
-[connection signal="shape_selected" from="ui/InspectorPanel" to="ui/GraphPanel" method="set_shape"]

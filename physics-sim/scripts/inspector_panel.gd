@@ -7,8 +7,6 @@ var selected: Shape = null
 @onready var vx_spin: SpinBox = %VxSpin
 @onready var vy_spin: SpinBox = %VySpin
 
-signal shape_selected(shape: Shape)
-
 func _ready() -> void:
 	x_spin.value_changed.connect(_on_value_changed)
 	y_spin.value_changed.connect(_on_value_changed)
@@ -32,7 +30,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _select(shape: Shape) -> void:
 	selected = shape
-	shape_selected.emit(shape)
 	# set_value_no_signal avoids triggering _on_value_changed while populating
 	x_spin.set_value_no_signal(shape.global_position.x)
 	y_spin.set_value_no_signal(shape.global_position.y)

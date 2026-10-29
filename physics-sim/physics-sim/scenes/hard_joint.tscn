@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hard_joint.gd" id="1_hj"]
+
+[node name="hard_joint" type="Node2D"]
+script = ExtResource("1_hj")
+
+[node name="PinA" type="PinJoint2D" parent="."]
+
+[node name="PinB" type="PinJoint2D" parent="."]

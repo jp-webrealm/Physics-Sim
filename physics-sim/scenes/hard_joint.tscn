@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bj03poyr4vw7f"]
+
+[ext_resource type="Script" uid="uid://7tddmpprel8b" path="res://scripts/hard_joint.gd" id="1_k0ljx"]
+
+[node name="hard joint" type="Node2D" unique_id=763279068]
+script = ExtResource("1_k0ljx")
+
+[node name="PinA" type="PinJoint2D" parent="." unique_id=287104954]
+
+[node name="PinB" type="PinJoint2D" parent="." unique_id=287104955]
