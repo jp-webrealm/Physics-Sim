@@ -27,9 +27,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				_select(node)
 				return
 		selected = null
+		
+signal shape_selected(shape: Shape)
 
 func _select(shape: Shape) -> void:
 	selected = shape
+	shape_selected.emit(shape)
 	# set_value_no_signal avoids triggering _on_value_changed while populating
 	x_spin.set_value_no_signal(shape.global_position.x)
 	y_spin.set_value_no_signal(shape.global_position.y)

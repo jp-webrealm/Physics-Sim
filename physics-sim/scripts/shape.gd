@@ -7,6 +7,13 @@ class_name Shape
 @export var shape_weight: int = mass;
 @export var shape_color: Color = Color.WHITE
 
+var prev_vel: Vector2
+var accel = Vector2(0, 0)
+## The below is used so we don't get long ahh arrows
+## Higher = snappier, lower = smoother. ~10-15 is a good start.
+const ACCEL_SMOOTHING := 12.0
+var _has_prev_vel := false
+
 var _label: Label
 var _last_font_size: int = -1
 
@@ -33,7 +40,7 @@ func _make_arrows() -> void:
 	var accel_arrow = Arrow.new()
 	accel_arrow.color = Color(1.0, 0.339, 0.273, 1.0)
 	accel_arrow.value_getter = func() -> Vector2:
-		return constant_force / shape_weight
+		return accel
 	add_child(velocity_arrow)
 	add_child(accel_arrow)
 	velocity_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -85,4 +92,9 @@ func _update_label() -> void:
 	_label.global_position = global_position - box / 2.0
 
 func _physics_process(delta: float) -> void:
-	pass
+	if _has_prev_vel:
+		var raw_accel := (linear_velocity - prev_vel) / delta
+		var t := 1.0 - exp(-ACCEL_SMOOTHING * delta)
+		accel = accel.lerp(raw_accel, t)
+	prev_vel = linear_velocity
+	_has_prev_vel = true

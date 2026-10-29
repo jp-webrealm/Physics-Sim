@@ -1,1 +1,4 @@
 res://scenes/main.tscn
+res://scripts/graph_panel.gd
+res://scripts/inspector_panel.gd
+res://scripts/shape.gd

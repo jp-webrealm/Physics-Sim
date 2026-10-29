@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://ccqvj02hyrp57" path="res://scripts/joint_slot.gd" id="10_jslot"]
 [ext_resource type="Texture2D" uid="uid://xv135s5ameuw" path="res://sprites/joint.svg" id="11_jtex"]
 [ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="12_hjnt"]
+[ext_resource type="PackedScene" uid="uid://77d88xqt38fw" path="res://scenes/graph_panel.tscn" id="13_a8y0u"]
+[ext_resource type="Script" uid="uid://1nbg8r2u70ju" path="res://scripts/slingshot.gd" id="15_jkv2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -233,7 +235,14 @@ offset_top = 109.0
 offset_right = -1206.0
 offset_bottom = 140.0
 
+[node name="GraphPanel" parent="ui" unique_id=700875075 instance=ExtResource("13_a8y0u")]
+
 [node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
 script = ExtResource("3_1bvp3")
 
+[node name="Slingshot" type="Node2D" parent="." unique_id=238207525 node_paths=PackedStringArray("drop_area")]
+script = ExtResource("15_jkv2x")
+drop_area = NodePath("../ui/shape drop area")
+
 [connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]
+[connection signal="shape_selected" from="ui/InspectorPanel" to="ui/GraphPanel" method="set_shape"]
