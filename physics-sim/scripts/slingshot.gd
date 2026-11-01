@@ -46,7 +46,7 @@ func _try_grab() -> void:
 		return
 	var mouse := get_global_mouse_position()
 	for node in get_tree().get_nodes_in_group("shapes"):
-		if node is Shape and node.contains_point(mouse):
+		if node is Shape and not node.frozen and node.contains_point(mouse):
 			_grabbed = node
 			_pull = Vector2.ZERO
 			if hold_while_aiming:

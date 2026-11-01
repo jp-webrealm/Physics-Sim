@@ -6,12 +6,16 @@ var selected: Shape = null
 @onready var y_spin: SpinBox = %YSpin
 @onready var vx_spin: SpinBox = %VxSpin
 @onready var vy_spin: SpinBox = %VySpin
+@onready var freeze_button: Button = %FreezeButton
 
 func _ready() -> void:
 	x_spin.value_changed.connect(_on_value_changed)
 	y_spin.value_changed.connect(_on_value_changed)
 	vx_spin.value_changed.connect(_on_value_changed)
 	vy_spin.value_changed.connect(_on_value_changed)
+	freeze_button.pressed.connect(_on_freeze_pressed)
+	for spin in [x_spin, y_spin, vx_spin, vy_spin]:
+		SpinBoxHelper.select_all_on_focus(spin)
 
 func _process(_delta: float) -> void:
 	# Only editable while paused; hide once the sim starts
@@ -38,6 +42,22 @@ func _select(shape: Shape) -> void:
 	y_spin.set_value_no_signal(shape.global_position.y)
 	vx_spin.set_value_no_signal(shape.linear_velocity.x)
 	vy_spin.set_value_no_signal(shape.linear_velocity.y)
+	_refresh_freeze_button()
+
+func clear_selection() -> void:
+	selected = null
+	shape_selected.emit(null)
+
+func _on_freeze_pressed() -> void:
+	if selected == null or not is_instance_valid(selected):
+		return
+	selected.set_frozen(not selected.frozen)
+	vx_spin.set_value_no_signal(0.0)
+	vy_spin.set_value_no_signal(0.0)
+	_refresh_freeze_button()
+
+func _refresh_freeze_button() -> void:
+	freeze_button.text = "Unfreeze Object" if selected.frozen else "Freeze Object"
 
 func _on_value_changed(_value: float) -> void:
 	if selected == null or not is_instance_valid(selected):

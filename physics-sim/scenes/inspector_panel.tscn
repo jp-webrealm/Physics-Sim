@@ -47,6 +47,12 @@ step = 5.0
 allow_greater = true
 allow_lesser = true
 
+[node name="FreezeButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Pin this shape in place. It ignores gravity and can't be pushed, but still collides and holds joints"
+text = "Freeze Object"
+
 [node name="Label" type="Label" parent="." unique_id=1910640108]
 layout_mode = 2
 offset_transform_enabled = true

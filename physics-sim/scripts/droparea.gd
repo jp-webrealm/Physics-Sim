@@ -3,6 +3,7 @@ extends Control
 
 @export var spawn_parent: Node2D
 @export var settings: SpawnSettings
+@export var materials: Node
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data is Dictionary and data.has("scene")
@@ -28,8 +29,8 @@ func _apply_settings(body: RigidBody2D, panel: SpawnSettings) -> void:
 	# rigid body requires at least a positive mass
 	body.mass = maxf(new_mass, 0.001)
 	
-	# grab material from materials 
-	body.physics_material_override = %Materials.get_physics_material()
+	if materials != null and materials.has_method("get_physics_material"):
+		body.physics_material_override = materials.get_physics_material()
 
 	# shapes are shared between instances, so duplicate before resizing
 	var col := body.get_node_or_null("CollisionShape2D") as CollisionShape2D

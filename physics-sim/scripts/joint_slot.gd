@@ -6,13 +6,20 @@ extends TextureRect
 @export var joint_scene: PackedScene
 @export var spawn_parent: Node2D
 @export var preview_color := Color(1.0, 0.8, 0.2, 0.7)
+## shown in the slot until a texture is assigned
+@export var placeholder_text := ""
+## copied into the joint's stiffness when it has one (springs)
+@export var elasticity_slider: Range
 
 var _armed := false
 var _hovered := false
 var _first: Shape = null
+## where the first shape was clicked, relative to that shape so it follows it if it moves
+var _first_click_local := Vector2.ZERO
 var _preview: Control
 
 func _ready() -> void:
+	add_to_group("joint_slots")
 	mouse_entered.connect(func():
 		_hovered = true
 		_refresh_modulate())
@@ -44,15 +51,17 @@ func _input(event: InputEvent) -> void:
 
 	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		return
-	var shape := _shape_at(_to_world(event.position))
+	var world_pos := _to_world(event.position)
+	var shape := _shape_at(world_pos)
 	if shape == null:
 		return
 	get_viewport().set_input_as_handled()
 
 	if _first == null or not is_instance_valid(_first):
 		_first = shape
+		_first_click_local = shape.to_local(world_pos)
 	elif shape != _first:
-		_make_joint(_first, shape)
+		_make_joint(_first, shape, _first.to_global(_first_click_local))
 		_set_armed(false)
 
 func _process(_delta: float) -> void:
@@ -62,20 +71,34 @@ func _process(_delta: float) -> void:
 func _draw_preview() -> void:
 	if not _armed or _first == null or not is_instance_valid(_first):
 		return
-	var start := get_viewport().get_canvas_transform() * _first.global_position
+	var start := get_viewport().get_canvas_transform() * _first.to_global(_first_click_local)
 	var end := get_viewport().get_mouse_position()
 	_preview.draw_dashed_line(start, end, preview_color, 3.0, 10.0)
 	_preview.draw_circle(start, 6.0, preview_color)
 
-func _make_joint(a: Shape, b: Shape) -> void:
+func _draw() -> void:
+	if texture != null or placeholder_text == "":
+		return
+	var font := get_theme_default_font()
+	var font_size := 28
+	var baseline := (size.y + font.get_ascent(font_size) - font.get_descent(font_size)) / 2.0
+	draw_string(font, Vector2(0, baseline), placeholder_text, HORIZONTAL_ALIGNMENT_CENTER, size.x, font_size)
+
+func _make_joint(a: Shape, b: Shape, pivot: Vector2) -> void:
 	if joint_scene == null or spawn_parent == null:
 		push_error("joint slot needs joint_scene and spawn_parent")
 		return
-	var joint := joint_scene.instantiate() as HardJoint
+	var joint := joint_scene.instantiate() as ShapeJoint
+	if elasticity_slider != null and "stiffness" in joint:
+		joint.stiffness = elasticity_slider.value
 	spawn_parent.add_child(joint)
-	joint.attach(a, b)
+	joint.attach(a, b, pivot)
 
 func _set_armed(value: bool) -> void:
+	if value:
+		for slot in get_tree().get_nodes_in_group("joint_slots"):
+			if slot != self:
+				slot._set_armed(false)
 	_armed = value
 	_first = null
 	_refresh_modulate()

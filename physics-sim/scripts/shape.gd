@@ -17,6 +17,10 @@ var _has_prev_vel := false
 var _label: Label
 var _last_font_size: int = -1
 
+## pinned in place from the inspector: ignores gravity and can't be pushed,
+## but still collides and can hold joints
+var frozen := false
+
 func _ready() -> void:
 	add_to_group("shapes")
 	_set_color()
@@ -46,6 +50,13 @@ func _make_arrows() -> void:
 	velocity_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
 	accel_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+func set_frozen(value: bool) -> void:
+	frozen = value
+	freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
+	freeze = value
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+
 func set_initial_state(pos: Vector2, vel: Vector2) -> void:
 	global_position = pos
 	linear_velocity = vel
