@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dsuhrdutuynmc"]
+
+[ext_resource type="Script" path="res://scripts/hinge_joint.gd" id="1_hinge"]
+
+[node name="hinge joint" type="Node2D" unique_id=477594129]
+script = ExtResource("1_hinge")
+
+[node name="Pin" type="PinJoint2D" parent="." unique_id=477594130]

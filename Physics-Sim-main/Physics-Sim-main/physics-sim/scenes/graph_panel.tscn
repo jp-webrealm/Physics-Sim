@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://77d88xqt38fw"]
+
+[ext_resource type="Script" uid="uid://3lsxms7dcq63" path="res://scripts/graph_panel.gd" id="1_b6arj"]
+
+[node name="GraphPanel" type="VBoxContainer" unique_id=700875075]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_b6arj")

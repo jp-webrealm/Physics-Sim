@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://i4rfotd3cys"]
+
+[ext_resource type="Script" uid="uid://b2ibs21h7avta" path="res://scripts/droparea.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://cjpaypkqy3i6u" path="res://scripts/spawned_shapes.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bqx2fg3iutshh" path="res://scenes/inspector_panel.tscn" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://77d88xqt38fw" path="res://scenes/graph_panel.tscn" id="13_a8y0u"]
+[ext_resource type="Script" uid="uid://1nbg8r2u70ju" path="res://scripts/slingshot.gd" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dsidepanel001" path="res://scenes/side_menu.tscn" id="16_side"]
+[ext_resource type="Script" path="res://scripts/ruler.gd" id="17_ruler"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1152, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(35, 648)
+
+[node name="main" type="Node2D" unique_id=773411386]
+
+[node name="worldbox" type="Node2D" parent="." unique_id=27726430]
+
+[node name="floor" type="StaticBody2D" parent="worldbox" unique_id=420942139]
+position = Vector2(0, 1045)
+scale = Vector2(1.6667793, 0.86566967)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/floor" unique_id=1362614579]
+position = Vector2(576, 15.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/floor" unique_id=790024322]
+offset_top = -10.0
+offset_right = 1152.0
+offset_bottom = 41.0
+color = Color(0.16, 0.16, 0.16, 1)
+
+[node name="ceiling" type="StaticBody2D" parent="worldbox" unique_id=125217722]
+position = Vector2(0, 10)
+scale = Vector2(1.6668509, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/ceiling" unique_id=1111958698]
+position = Vector2(576, 15.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/ceiling" unique_id=149791209]
+offset_top = -10.0
+offset_right = 1152.0
+offset_bottom = 41.0
+color = Color(0.16, 0.16, 0.16, 1)
+
+[node name="walls" type="StaticBody2D" parent="worldbox" unique_id=1433131997]
+scale = Vector2(1.312538, 1.6396906)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/walls" unique_id=304874083]
+position = Vector2(17.5, 324)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/walls" unique_id=1424567272]
+offset_right = 40.0
+offset_bottom = 648.0
+color = Color(0.16, 0.16, 0.16, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="walls2" type="StaticBody2D" parent="worldbox" unique_id=29689570]
+position = Vector2(1872, 0)
+scale = Vector2(1.2088888, 1.6399997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="worldbox/walls2" unique_id=1483841416]
+position = Vector2(20, 324)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="ColorRect" type="ColorRect" parent="worldbox/walls2" unique_id=66285507]
+offset_right = 40.0
+offset_bottom = 648.0
+color = Color(0.16, 0.16, 0.16, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ruler" type="Node2D" parent="worldbox"]
+script = ExtResource("17_ruler")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=436948416]
+process_mode = 3
+
+[node name="shape drop area" type="Control" parent="ui" unique_id=170997331 node_paths=PackedStringArray("spawn_parent", "settings", "materials")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_h2yge")
+spawn_parent = NodePath("../../spawned shapes")
+settings = NodePath("../SideMenu/Panel/Body/Scroll/Content/RectSettings")
+materials = NodePath("../SideMenu/Panel/Body/Scroll/Content/Materials")
+
+[node name="GraphPanel" parent="ui" unique_id=700875075 instance=ExtResource("13_a8y0u")]
+visible = false
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 294.0
+offset_bottom = 660.0
+mouse_filter = 2
+
+[node name="start button" type="Button" parent="ui" unique_id=824286550]
+z_index = 2
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 260.0
+offset_bottom = 108.0
+tooltip_text = "Run the simulation"
+text = "Start Simulation"
+
+[node name="reset button" type="Button" parent="ui"]
+z_index = 2
+offset_left = 64.0
+offset_top = 116.0
+offset_right = 260.0
+offset_bottom = 160.0
+tooltip_text = "Remove every shape and joint and pause the simulation"
+text = "Reset Simulation"
+
+[node name="InspectorPanel" parent="ui" unique_id=554557418 instance=ExtResource("9_choun")]
+offset_left = -1566.0
+offset_top = 109.0
+offset_right = -1206.0
+offset_bottom = 140.0
+grow_horizontal = 1
+
+[node name="SideMenu" parent="ui" unique_id=1112912476 instance=ExtResource("16_side")]
+z_index = 10
+
+[node name="spawned shapes" type="Node2D" parent="." unique_id=1106244222]
+script = ExtResource("3_1bvp3")
+
+[node name="Slingshot" type="Node2D" parent="." unique_id=238207525 node_paths=PackedStringArray("drop_area")]
+script = ExtResource("15_jkv2x")
+drop_area = NodePath("../ui/shape drop area")
+
+[connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]
+[connection signal="pressed" from="ui/reset button" to="spawned shapes" method="_on_reset_button_pressed"]
+[connection signal="shape_selected" from="ui/InspectorPanel" to="ui/GraphPanel" method="set_shape"]
