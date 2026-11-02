@@ -89,6 +89,9 @@ func _make_joint(a: Shape, b: Shape, pivot: Vector2) -> void:
 		push_error("joint slot needs joint_scene and spawn_parent")
 		return
 	var joint := joint_scene.instantiate() as ShapeJoint
+	if joint == null:
+		push_error("joint_scene %s root has no ShapeJoint script" % joint_scene.resource_path)
+		return
 	if elasticity_slider != null and "stiffness" in joint:
 		joint.stiffness = elasticity_slider.value
 	spawn_parent.add_child(joint)
