@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cut8vdrlwqhp8"]
+
+[ext_resource type="Script" path="res://scripts/spring_joint.gd" id="1_spring"]
+
+[node name="spring joint" type="Node2D" unique_id=999562555]
+script = ExtResource("1_spring")
+
+[node name="Spring" type="DampedSpringJoint2D" parent="." unique_id=999562556]

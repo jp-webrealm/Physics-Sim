@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="11_hjnt"]
 [ext_resource type="Texture2D" uid="uid://dwwmf7g3se2ne" path="res://sprites/spring.svg" id="12_6pbfu"]
 [ext_resource type="PackedScene" uid="uid://dsuhrdutuynmc" path="res://scenes/hinge_joint.tscn" id="12_hinge"]
-[ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/spring_joint.tscn" id="13_6pbfu"]
+[ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/spring_joint.tscn" id="13_spring"]
 
 [node name="SideMenu" type="Control" unique_id=1500459568]
 layout_mode = 3
