@@ -1,406 +1,406 @@
-[gd_scene format=3 uid="uid://dsidepanel001"]
+    [gd_scene format=3 uid="uid://dsidepanel001"]
 
-[ext_resource type="Script" uid="uid://c4k8sideuimn1" path="res://scripts/side_menu.gd" id="1_menu"]
-[ext_resource type="PackedScene" uid="uid://bobsp5i773i7w" path="res://scenes/hotbar_slot.tscn" id="2_slot"]
-[ext_resource type="Texture2D" uid="uid://lt0xf4kptp2b" path="res://sprites/square.svg" id="3_sqtex"]
-[ext_resource type="PackedScene" uid="uid://dea6whrs1upr2" path="res://scenes/square.tscn" id="4_sqscn"]
-[ext_resource type="Texture2D" uid="uid://dmg3ajx82h4pc" path="res://sprites/circle-small.svg" id="5_citex"]
-[ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_ciscn"]
-[ext_resource type="Texture2D" uid="uid://dmgpw1c6aq3t7" path="res://sprites/hard.svg" id="7_6pbfu"]
-[ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="7_set"]
-[ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_mat"]
-[ext_resource type="Texture2D" uid="uid://d2ioer5b50sx1" path="res://sprites/hinge.svg" id="10_3krn0"]
-[ext_resource type="Script" uid="uid://ccqvj02hyrp57" path="res://scripts/joint_slot.gd" id="10_jslot"]
-[ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="11_hjnt"]
-[ext_resource type="Texture2D" uid="uid://dwwmf7g3se2ne" path="res://sprites/spring.svg" id="12_6pbfu"]
-[ext_resource type="PackedScene" uid="uid://dsuhrdutuynmc" path="res://scenes/hinge_joint.tscn" id="12_hinge"]
-[ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/spring_joint.tscn" id="13_spring"]
+    [ext_resource type="Script" uid="uid://c4k8sideuimn1" path="res://scripts/side_menu.gd" id="1_menu"]
+    [ext_resource type="PackedScene" uid="uid://bobsp5i773i7w" path="res://scenes/hotbar_slot.tscn" id="2_slot"]
+    [ext_resource type="Texture2D" uid="uid://lt0xf4kptp2b" path="res://sprites/square.svg" id="3_sqtex"]
+    [ext_resource type="PackedScene" uid="uid://dea6whrs1upr2" path="res://scenes/square.tscn" id="4_sqscn"]
+    [ext_resource type="Texture2D" uid="uid://dmg3ajx82h4pc" path="res://sprites/circle-small.svg" id="5_citex"]
+    [ext_resource type="PackedScene" uid="uid://doemrdca4b7xn" path="res://scenes/circle.tscn" id="6_ciscn"]
+    [ext_resource type="Texture2D" uid="uid://dmgpw1c6aq3t7" path="res://sprites/hard.svg" id="7_6pbfu"]
+    [ext_resource type="Script" uid="uid://bs6beilvk3h20" path="res://scripts/settings.gd" id="7_set"]
+    [ext_resource type="PackedScene" uid="uid://dmfpfuvi10t8w" path="res://scenes/materials.tscn" id="8_mat"]
+    [ext_resource type="Texture2D" uid="uid://d2ioer5b50sx1" path="res://sprites/hinge.svg" id="10_3krn0"]
+    [ext_resource type="Script" uid="uid://ccqvj02hyrp57" path="res://scripts/joint_slot.gd" id="10_jslot"]
+    [ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="11_hjnt"]
+    [ext_resource type="Texture2D" uid="uid://dwwmf7g3se2ne" path="res://sprites/spring.svg" id="12_6pbfu"]
+    [ext_resource type="PackedScene" uid="uid://dsuhrdutuynmc" path="res://scenes/hinge_joint.tscn" id="12_hinge"]
+    [ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/spring_joint.tscn" id="13_spring"]
 
-[node name="SideMenu" type="Control" unique_id=1500459568]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_menu")
+    [node name="SideMenu" type="Control" unique_id=1500459568]
+    layout_mode = 3
+    anchors_preset = 15
+    anchor_right = 1.0
+    anchor_bottom = 1.0
+    grow_horizontal = 2
+    grow_vertical = 2
+    mouse_filter = 2
+    script = ExtResource("1_menu")
 
-[node name="Panel" type="PanelContainer" parent="." unique_id=1629348396]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 380.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 2
+    [node name="Panel" type="PanelContainer" parent="." unique_id=1629348396]
+    layout_mode = 1
+    anchors_preset = -1
+    anchor_left = 1.0
+    anchor_right = 1.0
+    anchor_bottom = 1.0
+    offset_left = 40.0
+    offset_top = 16.0
+    offset_right = 380.0
+    offset_bottom = -16.0
+    grow_horizontal = 0
+    grow_vertical = 2
 
-[node name="Body" type="VBoxContainer" parent="Panel" unique_id=774320707]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 8
+    [node name="Body" type="VBoxContainer" parent="Panel" unique_id=774320707]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Panel/Body" unique_id=823621078]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
+    [node name="Header" type="HBoxContainer" parent="Panel/Body" unique_id=823621078]
+    custom_minimum_size = Vector2(0, 44)
+    layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="Panel/Body/Header" unique_id=1948458841]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Controls"
+    [node name="TitleLabel" type="Label" parent="Panel/Body/Header" unique_id=1948458841]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Controls"
 
-[node name="Spacer" type="Control" parent="Panel/Body/Header" unique_id=1615875534]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
+    [node name="Spacer" type="Control" parent="Panel/Body/Header" unique_id=1615875534]
+    custom_minimum_size = Vector2(104, 0)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    mouse_filter = 2
 
-[node name="SepHeader" type="HSeparator" parent="Panel/Body" unique_id=433091467]
-layout_mode = 2
+    [node name="SepHeader" type="HSeparator" parent="Panel/Body" unique_id=433091467]
+    layout_mode = 2
 
-[node name="Scroll" type="ScrollContainer" parent="Panel/Body" unique_id=827543865]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-follow_focus = true
-horizontal_scroll_mode = 0
+    [node name="Scroll" type="ScrollContainer" parent="Panel/Body" unique_id=827543865]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    follow_focus = true
+    horizontal_scroll_mode = 0
 
-[node name="Content" type="VBoxContainer" parent="Panel/Body/Scroll" unique_id=1146167465]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 12
+    [node name="Content" type="VBoxContainer" parent="Panel/Body/Scroll" unique_id=1146167465]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 0
+    theme_override_constants/separation = 12
 
-[node name="ToolsLabel" type="Label" parent="Panel/Body/Scroll/Content" unique_id=1778544434]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Tools"
+    [node name="ToolsLabel" type="Label" parent="Panel/Body/Scroll/Content" unique_id=1778544434]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Tools"
 
-[node name="Hotbar" type="HBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=495427479]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 16
+    [node name="Hotbar" type="HBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=495427479]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    theme_override_constants/separation = 16
 
-[node name="Shapes" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar" unique_id=2042024219]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 12
+    [node name="Shapes" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar" unique_id=2042024219]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 0
+    theme_override_constants/separation = 12
 
-[node name="ShapesLabel" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=157411865 groups=["tool_caption"]]
-layout_mode = 2
-text = "Shapes"
-horizontal_alignment = 1
+    [node name="ShapesLabel" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=157411865 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Shapes"
+    horizontal_alignment = 1
 
-[node name="SquareWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=537594849]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 4
+    [node name="SquareWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=537594849]
+    layout_mode = 2
+    size_flags_horizontal = 4
+    theme_override_constants/separation = 4
 
-[node name="SquareFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap" unique_id=1645511630 groups=["tool_slot"]]
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_horizontal = 4
+    [node name="SquareFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap" unique_id=1645511630 groups=["tool_slot"]]
+    custom_minimum_size = Vector2(72, 72)
+    layout_mode = 2
+    size_flags_horizontal = 4
 
-[node name="SquareSlot" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap/SquareFrame" unique_id=1321448409 node_paths=PackedStringArray("settings") instance=ExtResource("2_slot")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tooltip_text = "Drag into the world to place a rectangle"
-texture = ExtResource("3_sqtex")
-shape_scene = ExtResource("4_sqscn")
-settings = NodePath("../../../../../RectSettings")
+    [node name="SquareSlot" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap/SquareFrame" unique_id=1321448409 node_paths=PackedStringArray("settings") instance=ExtResource("2_slot")]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    tooltip_text = "Drag into the world to place a rectangle"
+    texture = ExtResource("3_sqtex")
+    shape_scene = ExtResource("4_sqscn")
+    settings = NodePath("../../../../../RectSettings")
 
-[node name="SquareCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap" unique_id=1759687322 groups=["tool_caption"]]
-layout_mode = 2
-text = "Rect"
-horizontal_alignment = 1
+    [node name="SquareCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/SquareWrap" unique_id=1759687322 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Rect"
+    horizontal_alignment = 1
 
-[node name="CircleWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=1859012668]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 4
+    [node name="CircleWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes" unique_id=1859012668]
+    layout_mode = 2
+    size_flags_horizontal = 4
+    theme_override_constants/separation = 4
 
-[node name="CircleFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap" unique_id=702451194 groups=["tool_slot"]]
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_horizontal = 4
+    [node name="CircleFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap" unique_id=702451194 groups=["tool_slot"]]
+    custom_minimum_size = Vector2(72, 72)
+    layout_mode = 2
+    size_flags_horizontal = 4
 
-[node name="CircleSlot" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap/CircleFrame" unique_id=1571558121 node_paths=PackedStringArray("settings") instance=ExtResource("2_slot")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tooltip_text = "Drag into the world to place a circle"
-texture = ExtResource("5_citex")
-shape_scene = ExtResource("6_ciscn")
-settings = NodePath("../../../../../CircleSettings")
+    [node name="CircleSlot" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap/CircleFrame" unique_id=1571558121 node_paths=PackedStringArray("settings") instance=ExtResource("2_slot")]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    tooltip_text = "Drag into the world to place a circle"
+    texture = ExtResource("5_citex")
+    shape_scene = ExtResource("6_ciscn")
+    settings = NodePath("../../../../../CircleSettings")
 
-[node name="CircleCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap" unique_id=1922589211 groups=["tool_caption"]]
-layout_mode = 2
-text = "Circle"
-horizontal_alignment = 1
+    [node name="CircleCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Shapes/CircleWrap" unique_id=1922589211 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Circle"
+    horizontal_alignment = 1
 
-[node name="Joints" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar" unique_id=325257560]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 12
+    [node name="Joints" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar" unique_id=325257560]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 0
+    theme_override_constants/separation = 12
 
-[node name="JointsLabel" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=1402736985 groups=["tool_caption"]]
-layout_mode = 2
-text = "Joints"
-horizontal_alignment = 1
+    [node name="JointsLabel" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=1402736985 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Joints"
+    horizontal_alignment = 1
 
-[node name="JointWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=1018304314]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 4
+    [node name="JointWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=1018304314]
+    layout_mode = 2
+    size_flags_horizontal = 4
+    theme_override_constants/separation = 4
 
-[node name="JointFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap" unique_id=10572246 groups=["tool_slot"]]
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_horizontal = 4
+    [node name="JointFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap" unique_id=10572246 groups=["tool_slot"]]
+    custom_minimum_size = Vector2(72, 72)
+    layout_mode = 2
+    size_flags_horizontal = 4
 
-[node name="JointSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap/JointFrame" unique_id=1389841483]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tooltip_text = "Hard joint: click here, then click two shapes to glue them together (right click or Esc cancels)"
-mouse_filter = 0
-texture = ExtResource("7_6pbfu")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_jslot")
-joint_scene = ExtResource("11_hjnt")
+    [node name="JointSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap/JointFrame" unique_id=1389841483]
+    unique_name_in_owner = true
+    custom_minimum_size = Vector2(64, 64)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    tooltip_text = "Hard joint: click here, then click two shapes to glue them together (right click or Esc cancels)"
+    mouse_filter = 0
+    texture = ExtResource("7_6pbfu")
+    expand_mode = 1
+    stretch_mode = 5
+    script = ExtResource("10_jslot")
+    joint_scene = ExtResource("11_hjnt")
 
-[node name="JointCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap" unique_id=2114589820 groups=["tool_caption"]]
-layout_mode = 2
-text = "Hard Joint"
-horizontal_alignment = 1
+    [node name="JointCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/JointWrap" unique_id=2114589820 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Hard Joint"
+    horizontal_alignment = 1
 
-[node name="HingeWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=791162077]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 4
+    [node name="HingeWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=791162077]
+    layout_mode = 2
+    size_flags_horizontal = 4
+    theme_override_constants/separation = 4
 
-[node name="HingeFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap" unique_id=735141996 groups=["tool_slot"]]
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_horizontal = 4
+    [node name="HingeFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap" unique_id=735141996 groups=["tool_slot"]]
+    custom_minimum_size = Vector2(72, 72)
+    layout_mode = 2
+    size_flags_horizontal = 4
 
-[node name="HingeSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap/HingeFrame" unique_id=449288687 node_paths=PackedStringArray("elasticity_slider")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tooltip_text = "Hinge joint: click here, then click two shapes. They spin around the point where you clicked the first shape (right click or Esc cancels)"
-mouse_filter = 0
-texture = ExtResource("10_3krn0")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_jslot")
-joint_scene = ExtResource("12_hinge")
-placeholder_text = "H"
-elasticity_slider = NodePath("../../../../../SpringSettings/ElasticitySlider")
+    [node name="HingeSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap/HingeFrame" unique_id=449288687 node_paths=PackedStringArray("elasticity_slider")]
+    unique_name_in_owner = true
+    custom_minimum_size = Vector2(64, 64)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    tooltip_text = "Hinge joint: click here, then click two shapes. They spin around the point where you clicked the first shape (right click or Esc cancels)"
+    mouse_filter = 0
+    texture = ExtResource("10_3krn0")
+    expand_mode = 1
+    stretch_mode = 5
+    script = ExtResource("10_jslot")
+    joint_scene = ExtResource("12_hinge")
+    placeholder_text = "H"
+    elasticity_slider = NodePath("../../../../../SpringSettings/ElasticitySlider")
 
-[node name="HingeCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap" unique_id=519447251 groups=["tool_caption"]]
-layout_mode = 2
-text = "Hinge"
-horizontal_alignment = 1
+    [node name="HingeCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/HingeWrap" unique_id=519447251 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Hinge"
+    horizontal_alignment = 1
 
-[node name="SpringWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=217928013]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 4
+    [node name="SpringWrap" type="VBoxContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints" unique_id=217928013]
+    layout_mode = 2
+    size_flags_horizontal = 4
+    theme_override_constants/separation = 4
 
-[node name="SpringFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap" unique_id=222243454 groups=["tool_slot"]]
-custom_minimum_size = Vector2(72, 72)
-layout_mode = 2
-size_flags_horizontal = 4
+    [node name="SpringFrame" type="PanelContainer" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap" unique_id=222243454 groups=["tool_slot"]]
+    custom_minimum_size = Vector2(72, 72)
+    layout_mode = 2
+    size_flags_horizontal = 4
 
-[node name="SpringSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap/SpringFrame" unique_id=2082097670 node_paths=PackedStringArray("elasticity_slider")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tooltip_text = "Spring joint: click here, then click two shapes to connect them with a spring (right click or Esc cancels)"
-mouse_filter = 0
-texture = ExtResource("12_6pbfu")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_jslot")
-joint_scene = ExtResource("13_6pbfu")
-placeholder_text = "S"
-elasticity_slider = NodePath("../../../../../SpringSettings/ElasticitySlider")
+    [node name="SpringSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap/SpringFrame" unique_id=2082097670 node_paths=PackedStringArray("elasticity_slider")]
+    unique_name_in_owner = true
+    custom_minimum_size = Vector2(64, 64)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    size_flags_vertical = 3
+    tooltip_text = "Spring joint: click here, then click two shapes to connect them with a spring (right click or Esc cancels)"
+    mouse_filter = 0
+    texture = ExtResource("12_6pbfu")
+    expand_mode = 1
+    stretch_mode = 5
+    script = ExtResource("10_jslot")
+    joint_scene = ExtResource("13_spring")
+    placeholder_text = "S"
+    elasticity_slider = NodePath("../../../../../SpringSettings/ElasticitySlider")
 
-[node name="SpringCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap" unique_id=2049507718 groups=["tool_caption"]]
-layout_mode = 2
-text = "Spring"
-horizontal_alignment = 1
+    [node name="SpringCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap" unique_id=2049507718 groups=["tool_caption"]]
+    layout_mode = 2
+    text = "Spring"
+    horizontal_alignment = 1
 
-[node name="SepRect" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=102193229]
-layout_mode = 2
+    [node name="SepRect" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=102193229]
+    layout_mode = 2
 
-[node name="SpringSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=210976370]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
+    [node name="SpringSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=210976370]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    theme_override_constants/separation = 6
 
-[node name="SpringLabel" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=1555460563]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Spring"
+    [node name="SpringLabel" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=1555460563]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Spring"
 
-[node name="TitleRow" type="HBoxContainer" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=1380349436]
-layout_mode = 2
+    [node name="TitleRow" type="HBoxContainer" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=1380349436]
+    layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings/TitleRow" unique_id=1010292410]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Elasticity"
+    [node name="Label" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings/TitleRow" unique_id=1010292410]
+    layout_mode = 2
+    size_flags_horizontal = 3
+    text = "Elasticity"
 
-[node name="ElasticityValue" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings/TitleRow" unique_id=63265775]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(44, 0)
-layout_mode = 2
-text = "20"
-horizontal_alignment = 2
+    [node name="ElasticityValue" type="Label" parent="Panel/Body/Scroll/Content/SpringSettings/TitleRow" unique_id=63265775]
+    unique_name_in_owner = true
+    custom_minimum_size = Vector2(44, 0)
+    layout_mode = 2
+    text = "20"
+    horizontal_alignment = 2
 
-[node name="ElasticitySlider" type="HSlider" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=571778121]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 22)
-layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "Higher values make new springs stiffer, so they snap back harder"
-min_value = 1.0
-value = 20.0
+    [node name="ElasticitySlider" type="HSlider" parent="Panel/Body/Scroll/Content/SpringSettings" unique_id=571778121]
+    unique_name_in_owner = true
+    custom_minimum_size = Vector2(0, 22)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    tooltip_text = "Higher values make new springs stiffer, so they snap back harder"
+    min_value = 1.0
+    value = 20.0
 
-[node name="SepSpring" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=190670985]
-layout_mode = 2
+    [node name="SepSpring" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=190670985]
+    layout_mode = 2
 
-[node name="RectSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=83304853]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-script = ExtResource("7_set")
+    [node name="RectSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=83304853]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
+    theme_override_constants/separation = 6
+    script = ExtResource("7_set")
 
-[node name="RectLabel" type="Label" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=913703260]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Rectangle"
+    [node name="RectLabel" type="Label" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=913703260]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Rectangle"
 
-[node name="x size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=1816214978]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-prefix = "Width"
-suffix = "px"
+    [node name="x size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=1816214978]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 1.0
+    max_value = 500.0
+    value = 20.0
+    prefix = "Width"
+    suffix = "px"
 
-[node name="y size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=1703405029]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-prefix = "Height"
-suffix = "px"
+    [node name="y size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=1703405029]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 1.0
+    max_value = 500.0
+    value = 20.0
+    prefix = "Height"
+    suffix = "px"
 
-[node name="mass spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=2071341774]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 0.1
-max_value = 1000.0
-step = 0.1
-value = 1.0
-prefix = "Mass"
-suffix = "g"
+    [node name="mass spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/RectSettings" unique_id=2071341774]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 0.1
+    max_value = 1000.0
+    step = 0.1
+    value = 1.0
+    prefix = "Mass"
+    suffix = "g"
 
-[node name="SepCircle" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=708577144]
-layout_mode = 2
+    [node name="SepCircle" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=708577144]
+    layout_mode = 2
 
-[node name="CircleSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=1961651201]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-script = ExtResource("7_set")
+    [node name="CircleSettings" type="VBoxContainer" parent="Panel/Body/Scroll/Content" unique_id=1961651201]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
+    theme_override_constants/separation = 6
+    script = ExtResource("7_set")
 
-[node name="CircleLabel" type="Label" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=1942864015]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Circle"
+    [node name="CircleLabel" type="Label" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=1942864015]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Circle"
 
-[node name="x size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=901100912]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-prefix = "Width"
-suffix = "px"
+    [node name="x size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=901100912]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 1.0
+    max_value = 500.0
+    value = 20.0
+    prefix = "Width"
+    suffix = "px"
 
-[node name="y size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=480923475]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 500.0
-value = 20.0
-prefix = "Height"
-suffix = "px"
+    [node name="y size spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=480923475]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 1.0
+    max_value = 500.0
+    value = 20.0
+    prefix = "Height"
+    suffix = "px"
 
-[node name="mass spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=1768667278]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 0.1
-max_value = 1000.0
-step = 0.1
-value = 1.0
-prefix = "Mass"
-suffix = "g"
+    [node name="mass spinbox" type="SpinBox" parent="Panel/Body/Scroll/Content/CircleSettings" unique_id=1768667278]
+    custom_minimum_size = Vector2(0, 32)
+    layout_mode = 2
+    size_flags_horizontal = 3
+    min_value = 0.1
+    max_value = 1000.0
+    step = 0.1
+    value = 1.0
+    prefix = "Mass"
+    suffix = "g"
 
-[node name="SepSurface" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=1694507418]
-layout_mode = 2
+    [node name="SepSurface" type="HSeparator" parent="Panel/Body/Scroll/Content" unique_id=1694507418]
+    layout_mode = 2
 
-[node name="SurfaceLabel" type="Label" parent="Panel/Body/Scroll/Content" unique_id=1188953856]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Surface"
+    [node name="SurfaceLabel" type="Label" parent="Panel/Body/Scroll/Content" unique_id=1188953856]
+    unique_name_in_owner = true
+    layout_mode = 2
+    text = "Surface"
 
-[node name="Materials" parent="Panel/Body/Scroll/Content" unique_id=1131380333 instance=ExtResource("8_mat")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
+    [node name="Materials" parent="Panel/Body/Scroll/Content" unique_id=1131380333 instance=ExtResource("8_mat")]
+    unique_name_in_owner = true
+    layout_mode = 2
+    size_flags_horizontal = 3
 
-[node name="Toggle" type="Button" parent="." unique_id=695775451]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -114.0
-offset_top = 34.0
-offset_right = -26.0
-offset_bottom = 70.0
-grow_horizontal = 0
-tooltip_text = "Show controls"
-text = "Menu"
+    [node name="Toggle" type="Button" parent="." unique_id=695775451]
+    layout_mode = 1
+    anchors_preset = -1
+    anchor_left = 1.0
+    anchor_right = 1.0
+    offset_left = -114.0
+    offset_top = 34.0
+    offset_right = -26.0
+    offset_bottom = 70.0
+    grow_horizontal = 0
+    tooltip_text = "Show controls"
+    text = "Menu"
