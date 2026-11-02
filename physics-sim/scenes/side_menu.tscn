@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bj03poyr4vw7f" path="res://scenes/hard_joint.tscn" id="11_hjnt"]
 [ext_resource type="Texture2D" uid="uid://dwwmf7g3se2ne" path="res://sprites/spring.svg" id="12_6pbfu"]
 [ext_resource type="PackedScene" uid="uid://dsuhrdutuynmc" path="res://scenes/hinge_joint.tscn" id="12_hinge"]
-[ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/sprint_joint.tscn" id="13_spring"]
+[ext_resource type="PackedScene" uid="uid://cut8vdrlwqhp8" path="res://scenes/spring_joint.tscn" id="13_6pbfu"]
 
 [node name="SideMenu" type="Control" unique_id=1500459568]
 layout_mode = 3
@@ -229,7 +229,7 @@ custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SpringSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap/SpringFrame" unique_id=2082097670]
+[node name="SpringSlot" type="TextureRect" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap/SpringFrame" unique_id=2082097670 node_paths=PackedStringArray("elasticity_slider")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -241,8 +241,9 @@ texture = ExtResource("12_6pbfu")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("10_jslot")
-joint_scene = ExtResource("13_spring")
+joint_scene = ExtResource("13_6pbfu")
 placeholder_text = "S"
+elasticity_slider = NodePath("../../../../../SpringSettings/ElasticitySlider")
 
 [node name="SpringCaption" type="Label" parent="Panel/Body/Scroll/Content/Hotbar/Joints/SpringWrap" unique_id=2049507718 groups=["tool_caption"]]
 layout_mode = 2
