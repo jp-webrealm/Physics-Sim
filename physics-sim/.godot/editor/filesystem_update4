@@ -1,0 +1,16 @@
+res://scenes/main.tscn
+res://scripts/arrow.gd
+res://scripts/arrow_editor.gd
+res://scripts/droparea.gd
+res://scripts/hue_strip.gd
+res://scripts/selected_panel.gd
+res://scripts/shape.gd
+res://scripts/shape_palette.gd
+res://scripts/side_menu.gd
+res://scripts/sim.gd
+res://scripts/slingshot.gd
+res://scripts/ui_kit.gd
+res://scripts/screen_shake.gd
+res://scripts/senses_panel.gd
+res://scripts/sense_audio.gd
+res://scripts/world_panel.gd

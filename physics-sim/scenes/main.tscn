@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b2ibs21h7avta" path="res://scripts/droparea.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cjpaypkqy3i6u" path="res://scripts/spawned_shapes.gd" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bqx2fg3iutshh" path="res://scenes/inspector_panel.tscn" id="9_choun"]
-[ext_resource type="PackedScene" uid="uid://77d88xqt38fw" path="res://scenes/graph_panel.tscn" id="13_a8y0u"]
+[ext_resource type="Script" uid="uid://dgmo6wl055ayt" path="res://scripts/screen_shake.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://0m175v4ypiwi" path="res://scripts/sense_audio.gd" id="7_tipki"]
+[ext_resource type="Script" uid="uid://ci8rm32pvpuma" path="res://scripts/arrow_editor.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://1nbg8r2u70ju" path="res://scripts/slingshot.gd" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dsidepanel001" path="res://scenes/side_menu.tscn" id="16_side"]
-[ext_resource type="Script" path="res://scripts/ruler.gd" id="17_ruler"]
+[ext_resource type="Script" uid="uid://n3km70u28pp" path="res://scripts/ruler.gd" id="17_ruler"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 51)
@@ -73,7 +74,7 @@ offset_bottom = 648.0
 color = Color(0.16, 0.16, 0.16, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="ruler" type="Node2D" parent="worldbox"]
+[node name="ruler" type="Node2D" parent="worldbox" unique_id=2053975731]
 script = ExtResource("17_ruler")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=436948416]
@@ -96,14 +97,6 @@ spawn_parent = NodePath("../../spawned shapes")
 settings = NodePath("../SideMenu/Panel/Body/Scroll/Content/RectSettings")
 materials = NodePath("../SideMenu/Panel/Body/Scroll/Content/Materials")
 
-[node name="GraphPanel" parent="ui" unique_id=700875075 instance=ExtResource("13_a8y0u")]
-visible = false
-offset_left = 64.0
-offset_top = 176.0
-offset_right = 294.0
-offset_bottom = 660.0
-mouse_filter = 2
-
 [node name="start button" type="Button" parent="ui" unique_id=824286550]
 z_index = 2
 offset_left = 64.0
@@ -113,7 +106,7 @@ offset_bottom = 108.0
 tooltip_text = "Run the simulation"
 text = "Start Simulation"
 
-[node name="reset button" type="Button" parent="ui"]
+[node name="reset button" type="Button" parent="ui" unique_id=1613451501]
 z_index = 2
 offset_left = 64.0
 offset_top = 116.0
@@ -121,13 +114,6 @@ offset_right = 260.0
 offset_bottom = 160.0
 tooltip_text = "Remove every shape and joint and pause the simulation"
 text = "Reset Simulation"
-
-[node name="InspectorPanel" parent="ui" unique_id=554557418 instance=ExtResource("9_choun")]
-offset_left = -1566.0
-offset_top = 109.0
-offset_right = -1206.0
-offset_bottom = 140.0
-grow_horizontal = 1
 
 [node name="SideMenu" parent="ui" unique_id=1112912476 instance=ExtResource("16_side")]
 z_index = 10
@@ -139,6 +125,14 @@ script = ExtResource("3_1bvp3")
 script = ExtResource("15_jkv2x")
 drop_area = NodePath("../ui/shape drop area")
 
+[node name="ScreenShake" type="Camera2D" parent="." unique_id=2010721648]
+script = ExtResource("6_tefeu")
+
+[node name="SenseAudio" type="Node" parent="." unique_id=21267016]
+script = ExtResource("7_tipki")
+
+[node name="ArrowEditor" type="Node2D" parent="." unique_id=1601729120]
+script = ExtResource("8_85g3d")
+
 [connection signal="button_up" from="ui/start button" to="spawned shapes" method="_on_start_button_button_up"]
 [connection signal="pressed" from="ui/reset button" to="spawned shapes" method="_on_reset_button_pressed"]
-[connection signal="shape_selected" from="ui/InspectorPanel" to="ui/GraphPanel" method="set_shape"]

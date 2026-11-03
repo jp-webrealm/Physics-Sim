@@ -25,6 +25,11 @@ func _apply_settings(body: RigidBody2D, panel: SpawnSettings) -> void:
 
 	var new_size := Vector2(panel.get_size_x(), panel.get_size_y())
 	var new_mass := panel.get_mass()
+	
+	var as_shape := body as Shape
+	if as_shape:
+		as_shape.shape_size_x = int(new_size.x)
+		as_shape.shape_size_y = int(new_size.y)
 
 	# rigid body requires at least a positive mass
 	body.mass = maxf(new_mass, 0.001)

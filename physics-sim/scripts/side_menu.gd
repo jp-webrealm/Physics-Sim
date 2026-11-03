@@ -21,14 +21,17 @@ const BUTTON_PRESSED := Color(0.17, 0.17, 0.17)
 @onready var panel: PanelContainer = $Panel
 @onready var toggle_button: Button = $Toggle
 
+const TAB_SELECTED := 1
 var _open := false
 var _slide := 0.0
 var _tween: Tween
+var _tabs: TabContainer
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_wire_gameplay_refs()
+	_build_tabs()
 	_apply_theme()
 	_place_button()
 	_apply_slide(0.0)
@@ -40,6 +43,34 @@ func toggle() -> void:
 	toggle_button.text = "Close" if _open else "Menu"
 	toggle_button.tooltip_text = "Hide controls" if _open else "Show controls"
 	_animate_to(1.0 if _open else 0.0)
+	
+func _build_tabs() -> void:
+	var build_scroll := $Panel/Body/Scroll
+	_tabs = TabContainer.new()
+	_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	$Panel/Body.add_child(_tabs)
+	build_scroll.reparent(_tabs)
+	build_scroll.name = "Build"
+	_add_tab("Selected", SelectedPanel.new())
+	_add_tab("World", WorldPanel.new())
+	_add_tab("Senses", SensesPanel.new())
+	Sim.selection_changed.connect(_on_selection_changed)
+
+func _add_tab(title: String, content: Control) -> void:
+	var scroll := ScrollContainer.new()
+	scroll.name = title
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(content)
+	_tabs.add_child(scroll)
+
+## selecting a shape opens the menu on its tab, like the old inspector popping up
+func _on_selection_changed(shape: Shape) -> void:
+	if shape == null:
+		return
+	if not _open:
+		toggle()
+	_tabs.current_tab = TAB_SELECTED
 
 func _wire_gameplay_refs() -> void:
 	%SquareSlot.settings = %RectSettings
@@ -90,6 +121,7 @@ func _animate_to(target: float) -> void:
 	_tween.set_trans(Tween.TRANS_CUBIC)
 	_tween.set_ease(Tween.EASE_OUT)
 	_tween.tween_method(_apply_slide, _slide, target, SLIDE_TIME)
+	_tween.set_ignore_time_scale(true)
 
 func _apply_slide(t: float) -> void:
 	_slide = clampf(t, 0.0, 1.0)
@@ -113,6 +145,10 @@ func _apply_theme() -> void:
 		theme.set_color(color_name, "CheckButton", TEXT_COLOR)
 	theme.set_color("font_color", "Label", TEXT_COLOR)
 	theme.set_font_size("font_size", "CheckButton", 15)
+	theme.set_color("font_selected_color", "TabContainer", TEXT_COLOR)
+	theme.set_color("font_hovered_color", "TabContainer", TEXT_COLOR)
+	theme.set_color("font_unselected_color", "TabContainer", MUTED_TEXT)
+	theme.set_stylebox("panel", "TabContainer", StyleBoxEmpty.new())
 	panel.theme = theme
 	_paint_button(toggle_button)
 	_style_header(%TitleLabel, 20)
@@ -136,6 +172,7 @@ func _apply_theme() -> void:
 	line.color = BORDER_COLOR
 	line.thickness = 1
 	_style_separators(panel, line)
+	
 
 func _style_separators(node: Node, line: StyleBoxLine) -> void:
 	for child in node.get_children():

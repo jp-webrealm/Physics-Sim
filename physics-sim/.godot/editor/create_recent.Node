@@ -1,4 +1,6 @@
 Node2D
+Node
+Camera2D
 VBoxContainer
 Label
 HBoxContainer

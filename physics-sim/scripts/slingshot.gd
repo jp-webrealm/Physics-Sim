@@ -48,6 +48,7 @@ func _try_grab() -> void:
 	for node in get_tree().get_nodes_in_group("shapes"):
 		if node is Shape and not node.frozen and node.contains_point(mouse):
 			_grabbed = node
+			node.reset_tracking()   # in _try_grab
 			_pull = Vector2.ZERO
 			if hold_while_aiming:
 				_grabbed.linear_velocity = Vector2.ZERO
@@ -66,6 +67,7 @@ func _release() -> void:
 	if pulled_enough:
 		# same result as apply_central_impulse, but safe to call right after unfreezing
 		shape.linear_velocity += launch / shape.mass
+		shape.reset_tracking()  # in _release
 
 func _cancel() -> void:
 	if is_instance_valid(_grabbed) and hold_while_aiming:
